@@ -18,3 +18,4 @@
     - import_tasks: tasks/gnome.yml
     - import_tasks: tasks/neovim.yml
     - import_tasks: tasks/golang.yml
+    - import_tasks: tasks/terraform.yml

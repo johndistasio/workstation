@@ -1,0 +1,10 @@
+# vim: set ft=yaml.ansible:
+---
+- name: install neovim
+  package: name=neovim state=present
+
+- name: install neovim python libraries
+  package: name={{ item }} state=present
+  loop:
+    - python2-neovim
+    - python3-neovim

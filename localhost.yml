@@ -1,0 +1,20 @@
+# vim: set ft=yaml.ansible:
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: set user facts
+      become: no
+      set_fact:
+        home: '/home/{{ lookup("env", "USER") }}'
+        user: '{{ lookup("env", "USER") }}'
+
+    - name: fail on bad user facts
+      when: user == 'root' or home == '/root'
+      fail: msg='User has been detected as root'
+
+    - import_tasks: tasks/ansible.yml
+    - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/gnome.yml
+    - import_tasks: tasks/neovim.yml
+    - import_tasks: tasks/golang.yml

@@ -1,0 +1,16 @@
+# vim: set ft=yaml.ansible:
+---
+- name: instal gnome tweak tool
+  package: name=gnome-tweaks state=present
+
+- name: install gnome shell extensions
+  package: name=gnome-shell-extension-{{ item }}
+  loop:
+    #- dash-to-dock
+    - openweather
+
+- name: install gnome shell themes
+  package: name={{ item }} state=present 
+  loop:
+    - adapta-gtk-theme
+    - pop-icon-theme 

@@ -1,0 +1,8 @@
+# vim: set ft=yaml.ansible:
+---
+- name: clone ~/.vim
+  become: no
+  git:
+    repo: git@github.com:johndistasio/.vim.git
+    dest: '{{ home }}/.vim'
+    update: no

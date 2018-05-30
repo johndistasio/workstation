@@ -1,13 +1,11 @@
 # vim: set ft=yaml.ansible:
 ---
-- name: install selinux libraries
+- name: install ansible
   package: name={{ item }} state=present
   loop:
+    - ansible
+    - python2-ansible-lint
     - python2-libselinux
-    - python3-libselinux
-
-- name: install ansible
-  package: name=ansible state=present
 
 - name: manage /etc/ansible
   file: path=/etc/ansible state=directory owner=root group=root mode=0755

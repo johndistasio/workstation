@@ -2,8 +2,6 @@
 ---
 - name: download terraform
   become: no
-  vars:
-    terraform: 
   get_url:
     url: https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
     dest: '{{ home }}/Downloads/terraform_0.11.7_linux_amd64.zip'

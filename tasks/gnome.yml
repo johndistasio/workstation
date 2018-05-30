@@ -10,7 +10,7 @@
     - openweather
 
 - name: install gnome shell themes
-  package: name={{ item }} state=present 
+  package: name={{ item }} state=present
   loop:
     - adapta-gtk-theme
-    - pop-icon-theme 
+    - pop-icon-theme

@@ -1,0 +1,15 @@
+# vim: set ft=yaml.ansible:
+---
+- name: download terraform
+  get_url:
+    url: 'https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip'
+    dest: '{{ terraform_download }}/terraform_{{ terraform_version }}_linux_amd64.zip'
+    checksum: 'sha256:{{ terraform_sha256[terraform_version] }}'
+    mode: 0644
+
+- name: install terraform
+  unarchive:
+    src: '{{ terraform_download }}/terraform_{{ terraform_version }}_linux_amd64.zip'
+    dest: '{{ terraform_install }}'
+    mode: 0775
+

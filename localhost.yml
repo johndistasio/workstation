@@ -5,11 +5,13 @@
   tasks:
     - name: set user facts
       become: no
+      tags: [always]
       set_fact:
         home: '/home/{{ lookup("env", "USER") }}'
         user: '{{ lookup("env", "USER") }}'
 
     - name: fail on bad user facts
+      tags: [always]
       when: user == 'root' or home == '/root'
       fail: msg='User has been detected as root'
 
@@ -18,5 +20,11 @@
     - import_tasks: tasks/gnome.yml
     - import_tasks: tasks/neovim.yml
     - import_tasks: tasks/golang.yml
-    - import_tasks: tasks/terraform.yml
     - import_tasks: tasks/packages.yml
+    - name: install terraform
+      become: no
+      import_role: name=terraform
+      vars:
+        terraform_version: 0.11.7
+        terraform_download: '{{ home }}/Downloads'
+        terraform_install: '{{ home }}/.local/bin'

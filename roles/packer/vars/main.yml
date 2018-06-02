@@ -1,0 +1,4 @@
+# vim: ft=yaml.ansible:
+---
+packer_sha256:
+  1.2.4: 258d1baa23498932baede9b40f2eca4ac363b86b32487b36f48f5102630e9fbb

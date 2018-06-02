@@ -1,0 +1,15 @@
+# vim: ft=yaml.ansible:
+---
+- name: download release bundle
+  get_url:
+    url: 'https://releases.hashicorp.com/{{ hashicorp_app }}/{{ hashicorp_version }}/{{ hashicorp_app }}_{{ hashicorp_version }}_linux_amd64.zip'
+    dest: '{{ hashicorp_download }}/{{ hashicorp_app }}_{{ hashicorp_version }}_linux_amd64.zip'
+    checksum: 'sha256:{{ hashicorp_sha256 }}'
+    mode: 0644
+
+- name: install application
+  unarchive:
+    src: '{{ hashicorp_download }}/{{ hashicorp_app}}_{{ hashicorp_version }}_linux_amd64.zip'
+    dest: '{{ hashicorp_install }}'
+    mode: 0775
+

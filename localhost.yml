@@ -24,7 +24,7 @@
 
     - name: install terraform
       become: no
-      import_role: name=terraform
+      include_role: name=terraform
       vars:
         terraform_version: 0.11.7
         terraform_download: '{{ home }}/Downloads'

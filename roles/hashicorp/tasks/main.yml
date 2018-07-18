@@ -1,6 +1,6 @@
 # vim: ft=yaml.ansible:
 ---
-- name: download release bundle
+- name: download application
   get_url:
     url: 'https://releases.hashicorp.com/{{ hashicorp_app }}/{{ hashicorp_version }}/{{ hashicorp_app }}_{{ hashicorp_version }}_linux_amd64.zip'
     dest: '{{ hashicorp_download }}/{{ hashicorp_app }}_{{ hashicorp_version }}_linux_amd64.zip'

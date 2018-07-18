@@ -1,0 +1,15 @@
+---
+- name: add kubernetes repo
+  yum_repository:
+    name: Kubernetes
+    description:  Google Kubernetes repository
+    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    enabled: '{{ kubectl_repo_enabled }}'
+    repo_gpgcheck: yes
+    gpgcheck: yes
+    gpgkey:
+      - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+      - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+- name: install kubectl
+  package: name=kubectl state=present

@@ -1,7 +1,0 @@
-# vim: set ft=yaml.ansible:
----
-- name: install golang
-  package: name=golang state=present
-
-- name: install dep
-  package: name=dep state=present

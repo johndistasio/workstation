@@ -13,12 +13,18 @@
       when: user == 'root' or home == '/root'
       tags: [always]
       fail: msg='User has been detected as root'
+
+- hosts: localhost
+  become: yes
+  tasks:
     - import_tasks: tasks/packages.yml
     - import_tasks: tasks/ansible.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/gnome.yml
     - import_tasks: tasks/neovim.yml
-    - import_tasks: tasks/golang.yml
+    - name: install golang
+      tags: [golang]
+      import_role: name=golang
     - name: install terraform
       become: no
       tags: [terraform]
@@ -30,16 +36,16 @@
     - name: install packer
       become: no
       tags: [packer]
-      include_role: name=packer
+      import_role: name=packer
       vars:
         packer_version: 1.2.4
         packer_download: '{{ home }}/Downloads'
         packer_install: '{{ home }}/.local/bin'
     - name: install kubectl
       tags: [kubectl]
-      include_role: name=kubectl
+      import_role: name=kubectl
     - name: install minikube
       tags: [minikube]
-      include_role: name=minikube
+      import_role: name=minikube
       vars:
         minikube_version: v0.28.1

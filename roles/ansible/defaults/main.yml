@@ -1,4 +1,4 @@
 ---
-ansible_linter_package:
+ansible_linter_pkg:
   Debian: ansible-lint
   RedHat: python2-ansible-lint

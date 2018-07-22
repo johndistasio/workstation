@@ -4,5 +4,5 @@
   become: yes
 
 - name: install ruby development headers
-  package: name={{ ruby_dev_package[ansible_os_family] }} state=present
+  package: name={{ ruby_dev_pkg[ansible_os_family] }} state=present
   become: yes

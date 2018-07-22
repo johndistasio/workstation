@@ -4,7 +4,7 @@
   become: true
 
 - name: install ansible-lint
-  package: name={{ ansible_linter_package[ansible_os_family] }} state=present
+  package: name={{ ansible_linter_pkg[ansible_os_family] }} state=present
   become: true
 
 - import_tasks: redhat.yml

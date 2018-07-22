@@ -16,7 +16,10 @@
 
 - hosts: localhost
   tasks:
-    - import_tasks: tasks/packages.yml
+    - name: install base system
+      import_role:
+        name: base_system
+      tags: [base_system]
 
     - name: install ansible
       import_role:

@@ -1,7 +1,0 @@
-# vim: set ft=yaml.ansible:
----
-- name: install packages
-  package: name={{ item }} state=present
-  loop:
-    - curl
-    - youtube-dl

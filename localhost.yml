@@ -1,17 +1,18 @@
 # vim: set ft=yaml.ansible:
 ---
 - hosts: localhost
-  tags: [always]
   tasks:
     - name: set user facts
-      become: no
-      tags: [always]
       set_fact:
         home: '/home/{{ lookup("env", "USER") }}'
         user: '{{ lookup("env", "USER") }}'
+        tags: [always]
 
-- hosts: localhost
-  tasks:
+    - name: install dotfiles
+      import_role:
+        name: dotfiles
+      tags: [dotfiles]
+
     - name: install base system
       import_role:
         name: base_system
@@ -21,8 +22,6 @@
       import_role:
         name: ansible
       tags: [ansible]
-
-    - import_tasks: tasks/dotfiles.yml
 
     - name: install ruby
       import_role:

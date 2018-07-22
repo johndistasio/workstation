@@ -4,3 +4,9 @@
     name: apt-transport-https
     state: present
   become: yes
+
+- name: install build-essential
+  package:
+    name: build-essential
+    state: present
+  become: yes

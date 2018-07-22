@@ -1,1 +1,12 @@
 ---
+- name: install redhat-rpm-config
+  package:
+    name: redhat-rpm-config
+    state: present
+  become: yes
+
+- name: install development-tools group
+  package:
+    name: '@development-tools'
+    state: present
+  become: yes

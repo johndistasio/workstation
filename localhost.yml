@@ -24,11 +24,14 @@
       tags: [ansible]
 
     - import_tasks: tasks/dotfiles.yml
-    - import_tasks: tasks/neovim.yml
 
     - name: install ruby
       import_role: name=ruby
       tags: [ruby]
+
+    - name: install neovim
+      import_role: name=neovim
+      tags: [neovim]
 
     - name: install terraform
       become: no

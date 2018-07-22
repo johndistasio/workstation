@@ -1,3 +1,4 @@
 ---
 - name: install selinux python bindings
   package: name=python2-libselinux state=present
+  become: true

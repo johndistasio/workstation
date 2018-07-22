@@ -1,6 +1,8 @@
 ---
 - name: install ruby
   package: name=ruby state=present
+  become: yes
 
 - name: install ruby development headers
   package: name={{ ruby_dev_package[ansible_os_family] }} state=present
+  become: yes

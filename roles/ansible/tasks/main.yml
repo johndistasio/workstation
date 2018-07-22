@@ -1,15 +1,18 @@
 ---
 - name: install ansible
   package: name=ansible state=present
+  become: true
 
 - name: install ansible-lint
   package: name={{ ansible_linter_package[ansible_os_family] }} state=present
+  become: true
 
 - import_tasks: redhat.yml
   when: ansible_os_family == 'RedHat'
 
 - name: manage /etc/ansible
   file: path=/etc/ansible state=directory owner=root group=root mode=0755
+  become: true
 
 - name: manage /etc/ansible/hosts
   copy:
@@ -19,3 +22,4 @@
     owner: root
     group: root
     mode: 0644
+  become: true

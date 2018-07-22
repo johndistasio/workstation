@@ -1,7 +1,7 @@
 # vim: set ft=yaml.ansible:
 ---
 - hosts: localhost
-  become: yes
+  tags: [always]
   tasks:
     - name: set user facts
       become: no
@@ -15,45 +15,52 @@
       fail: msg='User has been detected as root'
 
 - hosts: localhost
-  become: yes
   tasks:
     - import_tasks: tasks/packages.yml
 
     - name: install ansible
-      import_role: name=ansible
+      import_role:
+        name: ansible
       tags: [ansible]
 
     - import_tasks: tasks/dotfiles.yml
 
     - name: install ruby
-      import_role: name=ruby
+      import_role:
+        name: ruby
       tags: [ruby]
 
     - name: install neovim
-      import_role: name=neovim
+      import_role:
+        name: neovim
       tags: [neovim]
 
     - name: install terraform
-      become: no
-      tags: [terraform]
-      include_role: name=terraform
+      import_role:
+        name: terraform
       vars:
         terraform_version: 0.11.7
         terraform_download: '{{ home }}/Downloads'
-        terraform_install: '{{ home }}/.local/bin' # TODO /usr/local/bin ?
+        terraform_install: '{{ home }}/.local/bin'
+      tags: [terraform]
+
     - name: install packer
-      become: no
-      tags: [packer]
-      import_role: name=packer
+      import_role:
+        name: packer
       vars:
         packer_version: 1.2.4
         packer_download: '{{ home }}/Downloads'
         packer_install: '{{ home }}/.local/bin'
+      tags: [packer]
+
     - name: install kubectl
+      import_role:
+        name: kubectl
       tags: [kubectl]
-      import_role: name=kubectl
+
     - name: install minikube
-      tags: [minikube]
-      import_role: name=minikube
+      import_role:
+        name: minikube
       vars:
         minikube_version: v0.28.1
+      tags: [minikube]

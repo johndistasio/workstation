@@ -4,7 +4,5 @@ dependencies:
   - role: hashicorp
     vars:
       hashicorp_app: packer
-      hashicorp_download: '{{ packer_download }}'
-      hashicorp_install: '{{ packer_install }}'
       hashicorp_sha256: '{{ packer_sha256[packer_version] }}'
       hashicorp_version: '{{ packer_version }}'

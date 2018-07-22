@@ -9,10 +9,6 @@
       set_fact:
         home: '/home/{{ lookup("env", "USER") }}'
         user: '{{ lookup("env", "USER") }}'
-    - name: fail on bad user facts
-      when: user == 'root' or home == '/root'
-      tags: [always]
-      fail: msg='User has been detected as root'
 
 - hosts: localhost
   tasks:
@@ -43,8 +39,6 @@
         name: terraform
       vars:
         terraform_version: 0.11.7
-        terraform_download: '{{ home }}/Downloads'
-        terraform_install: '{{ home }}/.local/bin'
       tags: [terraform]
 
     - name: install packer
@@ -52,8 +46,6 @@
         name: packer
       vars:
         packer_version: 1.2.4
-        packer_download: '{{ home }}/Downloads'
-        packer_install: '{{ home }}/.local/bin'
       tags: [packer]
 
     - name: install kubectl

@@ -6,7 +6,7 @@
       set_fact:
         home: '/home/{{ lookup("env", "USER") }}'
         user: '{{ lookup("env", "USER") }}'
-        tags: [always]
+      tags: [always]
 
     - name: install dotfiles
       import_role:
@@ -63,3 +63,8 @@
       vars:
         minikube_version: v0.28.1
       tags: [minikube]
+
+    - name: manage gnome desktop
+      import_role:
+        name: gnome-desktop
+      tags: [gnome]

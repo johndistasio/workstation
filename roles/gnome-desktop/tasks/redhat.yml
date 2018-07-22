@@ -1,0 +1,6 @@
+---
+- name: install pop-icon-theme
+  package:
+    name: pop-icon-theme
+    state: present
+  become: true

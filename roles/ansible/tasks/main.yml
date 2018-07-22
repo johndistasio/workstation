@@ -1,11 +1,12 @@
-# vim: set ft=yaml.ansible:
 ---
 - name: install ansible
-  package: name={{ item }} state=present
-  loop:
-    - ansible
-    - python2-ansible-lint
-    - python2-libselinux
+  package: name=ansible state=present
+
+- name: install ansible-lint
+  package: name={{ ansible_linter_package[ansible_os_family] }} state=present
+
+- import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'
 
 - name: manage /etc/ansible
   file: path=/etc/ansible state=directory owner=root group=root mode=0755

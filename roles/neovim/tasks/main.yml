@@ -1,19 +1,16 @@
 ---
 - name: install neovim
   package: name=neovim state=present
+  become: yes
 
 - name: install neovim python3 bindings
   pip:
     name: neovim
     extra_args: --user
     executable: pip3
-  become: yes
-  become_user: '{{ user }}'
 
 - name: install neovim ruby bindings
   gem:
     name: neovim
     state: present
     user_install: yes
-  become: yes
-  become_user: '{{ user }}'

@@ -1,0 +1,4 @@
+---
+ruby_dev_package:
+  Debian: ruby-dev
+  RedHat: ruby-devel

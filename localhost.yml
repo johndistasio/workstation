@@ -29,6 +29,11 @@
         name: ruby
       tags: [ruby]
 
+    - name: install golang
+      import_role:
+        name: golang
+      tags: [golang]
+
     - name: install neovim
       import_role:
         name: neovim

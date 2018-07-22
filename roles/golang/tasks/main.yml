@@ -1,0 +1,12 @@
+---
+- name: install golang
+  package:
+    name: golang
+    state: present
+  become: yes
+
+- name: install dep
+  package:
+    name: '{{ golang_dep_pkg[ansible_os_family] }}'
+    state: present
+  become: yes

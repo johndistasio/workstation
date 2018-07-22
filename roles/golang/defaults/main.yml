@@ -1,0 +1,4 @@
+---
+golang_dep_pkg:
+  Debian: go-dep
+  RedHat: dep

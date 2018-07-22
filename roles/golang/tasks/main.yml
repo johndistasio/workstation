@@ -1,4 +1,9 @@
 ---
+- name: create ~/go
+  file:
+    path: '{{ home }}/go'
+    state: directory
+
 - name: install golang
   package:
     name: golang

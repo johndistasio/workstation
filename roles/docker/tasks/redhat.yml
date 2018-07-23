@@ -1,0 +1,11 @@
+---
+- name: add docker-ce yum repository
+  yum_repository:
+    name: docker-ce-stable
+    description: Docker CE Stable - $basearch
+    baseurl: '{{ docker_repo_url[ansible_os_family] }}'
+    enabled: yes
+    repo_gpgcheck: yes
+    gpgcheck: yes
+    gpgkey: '{{ docker_repo_gpg_key }}'
+  become: yes

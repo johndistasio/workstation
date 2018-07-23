@@ -1,0 +1,26 @@
+---
+- import_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: install docker-ce
+  package:
+    name: docker-ce
+    state: present
+  become: yes
+
+- name: enable docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
+
+- name: add user to docker group
+  user:
+    name: '{{ user }}'
+    groups: docker
+    append: yes
+  become: yes

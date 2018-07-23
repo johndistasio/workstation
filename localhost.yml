@@ -52,6 +52,11 @@
         packer_version: 1.2.4
       tags: [packer]
 
+    - name: install docker
+      import_role:
+        name: docker
+      tags: [docker]
+
     - name: install kubectl
       import_role:
         name: kubectl

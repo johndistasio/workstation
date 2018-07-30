@@ -7,6 +7,10 @@
   package: name={{ ansible_linter_pkg[ansible_os_family] }} state=present
   become: true
 
+- name: install yamllint
+  package: name=yamllint state=present
+  become: true
+
 - import_tasks: redhat.yml
   when: ansible_os_family == 'RedHat'
 

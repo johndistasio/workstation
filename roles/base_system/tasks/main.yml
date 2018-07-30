@@ -1,6 +1,13 @@
+---
 - name: install curl
   package:
     name: curl
+    state: present
+  become: yes
+
+- name: install tmux
+  package:
+    name: tmux
     state: present
   become: yes
 
@@ -9,4 +16,3 @@
 
 - import_tasks: redhat.yml
   when: ansible_os_family == 'RedHat'
-

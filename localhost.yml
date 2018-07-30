@@ -8,68 +8,43 @@
         user: '{{ lookup("env", "USER") }}'
       tags: [always]
 
-    - name: install dotfiles
-      import_role:
-        name: dotfiles
+- hosts: localhost
+  roles:
+    - role: dotfiles
       tags: [dotfiles]
 
-    - name: install base system
-      import_role:
-        name: base_system
+    - role: base_system
       tags: [base_system]
 
-    - name: install ansible
-      import_role:
-        name: ansible
+    - role: ansible
       tags: [ansible]
 
-    - name: install ruby
-      import_role:
-        name: ruby
+    - role: ruby
       tags: [ruby]
 
-    - name: install golang
-      import_role:
-        name: golang
+    - role: golang
       tags: [golang]
 
-    - name: install neovim
-      import_role:
-        name: neovim
+    - role: neovim
       tags: [neovim]
 
-    - name: install terraform
-      import_role:
-        name: terraform
-      vars:
-        terraform_version: 0.11.7
+    - role: terraform
+      terraform_version: 0.11.7
       tags: [terraform]
 
-    - name: install packer
-      import_role:
-        name: packer
-      vars:
-        packer_version: 1.2.4
+    - role: packer
+      packer_version: 1.2.4
       tags: [packer]
 
-    - name: install docker
-      import_role:
-        name: docker
+    - role: docker
       tags: [docker]
 
-    - name: install kubectl
-      import_role:
-        name: kubectl
+    - role: kubectl
       tags: [kubectl]
 
-    - name: install minikube
-      import_role:
-        name: minikube
-      vars:
-        minikube_version: v0.28.1
+    - role: minikube
+      minikube_version: v0.28.1
       tags: [minikube]
 
-    - name: manage gnome desktop
-      import_role:
-        name: gnome-desktop
+    - role: gnome-desktop
       tags: [gnome]

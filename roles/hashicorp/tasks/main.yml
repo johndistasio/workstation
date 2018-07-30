@@ -12,4 +12,3 @@
     src: '{{ hashicorp_download }}/{{ hashicorp_app}}_{{ hashicorp_version }}_linux_amd64.zip'
     dest: '{{ hashicorp_install }}'
     mode: 0775
-

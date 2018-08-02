@@ -7,17 +7,12 @@
 
 - name: install fish config
   copy:
-    src: '{{ item }}'
-    dest: '{{ home }}/.config/fish/conf.d/{{ item }}'
+    src: config.fish
+    dest: '{{ home }}/.config/fish/conf.d/config.fish'
     mode: 0664
-  with_items:
-    - path.fish
 
 - name: install fish functions
   copy:
-    src: '{{ item }}'
-    dest: '{{ home }}/.config/fish/functions/{{ item }}'
+    src: functions/
+    dest: '{{ home }}/.config/fish/functions/'
     mode: 0664
-  with_items:
-    - fedora.fish
-    - ubuntu.fish

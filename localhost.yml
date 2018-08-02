@@ -48,3 +48,6 @@
 
     - role: gnome-desktop
       tags: [gnome]
+
+    - role: fish
+      tags: [fish]

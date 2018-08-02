@@ -1,0 +1,15 @@
+---
+- name: install fish shell
+  package:
+    name: fish
+    state: present
+  become: yes
+
+- name: install fish functions
+  copy:
+    src: '{{ item }}'
+    dest: '{{ home }}/.config/fish/functions/{{ item }}'
+    mode: 0664
+  with_items:
+    - fedora.fish
+    - ubuntu.fish

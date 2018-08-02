@@ -5,6 +5,14 @@
     state: present
   become: yes
 
+- name: install fish config
+  copy:
+    src: '{{ item }}'
+    dest: '{{ home }}/.config/fish/conf.d/{{ item }}'
+    mode: 0664
+  with_items:
+    - path.fish
+
 - name: install fish functions
   copy:
     src: '{{ item }}'

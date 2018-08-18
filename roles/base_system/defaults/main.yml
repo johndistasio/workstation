@@ -1,0 +1,4 @@
+---
+ctags_pkg:
+  Debian: exuberant-ctags
+  RedHat: ctags

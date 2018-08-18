@@ -1,11 +1,15 @@
-.PHONY: yamllint ansiblelint lint default
+.PHONY: ansiblelint default lint playbook yamllint
 
-default: lint
+default: lint playbook
+
+ansiblelint:
+	ansible-lint localhost.yml
 
 lint: yamllint ansiblelint
+
+playbook:
+	ansible-playbook localhost.yml
 
 yamllint:
 	find . -type f -iname '*.yml' -exec yamllint {} \;
 
-ansiblelint: 
-	ansible-lint localhost.yml

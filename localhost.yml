@@ -1,14 +1,12 @@
 # vim: set ft=yaml.ansible:
 ---
 - hosts: localhost
-  tasks:
+  pre_tasks:
     - name: set user facts
       set_fact:
         home: '/home/{{ lookup("env", "USER") }}'
         user: '{{ lookup("env", "USER") }}'
       tags: [always]
-
-- hosts: localhost
   roles:
     - role: dotfiles
       tags: [dotfiles]

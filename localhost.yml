@@ -13,8 +13,8 @@
     - role: dotfiles
       tags: [dotfiles]
 
-    - role: base_system
-      tags: [base_system]
+    - role: base-system
+      tags: [base-system]
 
     - role: ansible
       tags: [ansible]

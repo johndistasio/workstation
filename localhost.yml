@@ -44,6 +44,10 @@
       minikube_version: v0.28.1
       tags: [minikube]
 
+    - role: kops
+      kops_version: 1.10.0
+      tags: [kops]
+
     - role: gnome-desktop
       tags: [gnome]
 

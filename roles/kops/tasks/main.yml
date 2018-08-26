@@ -1,0 +1,7 @@
+---
+- name: download and install kops
+  get_url:
+    url: 'https://github.com/kubernetes/kops/releases/download/{{ kops_version }}/kops-linux-amd64'
+    dest: '{{ home }}/.local/bin/kops'
+    checksum: 'sha1:{{ kops_sha1[kops_version] }}'
+    mode: 0755

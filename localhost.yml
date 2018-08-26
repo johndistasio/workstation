@@ -14,6 +14,9 @@
     - role: base-system
       tags: [base-system]
 
+    - role: thermald
+      tags: [thermald]
+
     - role: ansible
       tags: [ansible]
 

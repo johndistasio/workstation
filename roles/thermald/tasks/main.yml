@@ -1,0 +1,15 @@
+---
+- name: install thermald
+  package:
+    name: thermald
+    state: present
+  become: yes
+
+- name: enable thermald
+  systemd:
+    name: thermald
+    state: started
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+  become: yes

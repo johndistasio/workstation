@@ -1,0 +1,15 @@
+---
+- name: install adapta theme
+  package:
+    name: '{{ item }}'
+    state: present
+  become: yes
+  loop:
+    - adapta-backgrounds
+    - adapta-gtk-theme
+
+- name: install pop-icon-theme
+  package:
+    name: pop-icon-theme
+    state: present
+  become: yes

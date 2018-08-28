@@ -51,7 +51,7 @@
       kops_version: 1.10.0
       tags: [kops]
 
-    - role: gnome-desktop
+    - role: gnome
       tags: [gnome]
 
     - role: fish

@@ -26,6 +26,9 @@
     - role: golang
       tags: [golang]
 
+    - role: node
+      tags: [node]
+
     - role: neovim
       tags: [neovim]
 

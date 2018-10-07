@@ -33,7 +33,7 @@
       tags: [neovim]
 
     - role: terraform
-      terraform_version: 0.11.7
+      terraform_version: 0.11.8
       tags: [terraform]
 
     - role: packer

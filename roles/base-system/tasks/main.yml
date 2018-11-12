@@ -29,6 +29,12 @@
     state: present
   become: yes
 
+- name: install nmap
+  package:
+    name: nmap
+    state: present
+  become: yes
+
 - import_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 

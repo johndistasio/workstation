@@ -1,0 +1,11 @@
+# vim: ft=yaml.ansible:
+---
+- name: download cfssl tools
+  get_url:
+    url: 'https://pkg.cfssl.org/R{{ cfssl_version }}/{{ item }}_linux-amd64'
+    dest: '{{ home }}/.local/bin/{{ item }}'
+    checksum: 'sha256:{{ lookup("vars", item + "_sha256sum")[cfssl_version] }}'
+    mode: 0775
+  loop:
+    - cfssl
+    - cfssljson

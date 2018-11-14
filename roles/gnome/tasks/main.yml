@@ -14,14 +14,14 @@
   git:
     repo: git@github.com:EliverLara/Ant.git
     dest: '{{ home }}/.local/share/themes/Ant'
-    refspec: 7fb07b2baf4c287ff30c101dbdbf3742fcee1948
+    version: 7fb07b2baf4c287ff30c101dbdbf3742fcee1948
     clone: yes
 
 - name: install ant nebula theme
   git:
     repo: git@github.com:EliverLara/Ant-Nebula.git
     dest: '{{ home }}/.local/share/themes/Ant-Nebula'
-    refspec: f9a01faded9abccd715fe5809ddd334a70fce282
+    version: f9a01faded9abccd715fe5809ddd334a70fce282
     clone: yes
 
 - name: install arc theme

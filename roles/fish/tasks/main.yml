@@ -5,10 +5,10 @@
     state: present
   become: yes
 
-- name: install fish config
+- name: install fish environment config
   copy:
-    src: config.fish
-    dest: '{{ home }}/.config/fish/conf.d/config.fish'
+    src: env.fish
+    dest: '{{ home }}/.config/fish/conf.d/env.fish'
     mode: 0664
 
 - name: install fish functions

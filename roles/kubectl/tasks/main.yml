@@ -1,3 +1,4 @@
+# vim: ft=yaml.ansible:
 ---
 - import_tasks: debian.yml
   when: ansible_os_family == 'Debian'
@@ -10,3 +11,10 @@
     name: kubectl
     state: present
   become: yes
+
+- name: install aws-iam-authenticator
+  get_url:
+    url: 'https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator'
+    dest: '{{ home }}/.local/bin/aws-iam-authenticator'
+    checksum: 'sha256:246f6d13b051bbfb12962edca074c8f67436930e84b2bec3a45a5d9242dc6f0c'
+    mode: 0755

@@ -1,0 +1,7 @@
+# vim: ft=yaml.ansible:
+---
+- name: install aws cli
+  pip:
+    name: awscli
+    extra_args: --user
+    executable: pip3

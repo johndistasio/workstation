@@ -48,7 +48,7 @@
       tags: [kubectl]
 
     - role: minikube
-      minikube_version: v0.28.1
+      minikube_version: v0.30.0
       tags: [minikube]
 
     - role: kops

@@ -6,4 +6,4 @@ set -xg TERM screen-256color
 
 set -xg GOPATH $HOME/go
 
-set -xg PATH $GOPATH/bin $HOME/bin $HOME/.local/bin $PATH
+set -xg PATH $GOPATH/bin $HOME/bin $HOME/.local/bin /usr/local/go/bin $PATH

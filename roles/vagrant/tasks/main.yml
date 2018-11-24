@@ -1,0 +1,13 @@
+# vim: set ft=yaml.ansible:
+---
+- name: download vagrant package
+  get_url:
+    url: 'https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/{{ vagrant_package }}'
+    dest: '{{ vagrant_download }}/{{ vagrant_package }}'
+    checksum: 'sha256:{{ vagrant_sha256[ansible_os_family][vagrant_version] }}'
+
+- name: install vagrant
+  package:
+    name: '{{ vagrant_download }}/{{ vagrant_package }}'
+    state: present
+  become: yes

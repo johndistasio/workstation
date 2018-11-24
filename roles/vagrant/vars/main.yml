@@ -1,0 +1,9 @@
+# vim: set ft=yaml.ansible:
+---
+vagrant_package: 'vagrant_{{ vagrant_version }}_x86_64.{% if ansible_os_family == "Debian" %}deb{% elif ansible_os_family == "RedHat" %}rpm{% endif %}'
+
+vagrant_sha256:
+  Debian:
+    2.2.1: c4ed572fff3fa2c6dd02280df6dfaebdeef2d1b9ec3daa2fb7f4193078fb4d82
+  RedHat:
+    2.2.1: 3f92fa6135f5dd53a46e06ece9b74124f98b7ea167dc42e78dee8c0e947f68b5

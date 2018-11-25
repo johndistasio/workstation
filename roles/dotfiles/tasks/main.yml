@@ -1,12 +1,20 @@
 ---
-- name: create ~/.local/bin
+- name: manage ~/.local/bin
   file:
     path: '{{ home }}/.local/bin'
     state: directory
+    mode: 0755
+
+- name: manage ~/.config
+  file:
+    path: '{{ home }}/.config'
+    state: directory
+    mode: 0700
 
 - name: clone ~/.vim
   git:
     repo: git@github.com:johndistasio/.vim.git
     dest: '{{ home }}/.vim'
+    accept_hostkey: yes
     update: no
     version: master

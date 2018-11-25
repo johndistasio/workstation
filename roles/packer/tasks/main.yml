@@ -1,0 +1,9 @@
+# vim: ft=yaml.ansible:
+---
+- name: install packer
+  include_role:
+    name: hashicorp
+  vars:
+    hashicorp_app: packer
+    hashicorp_sha256: '{{ packer_sha256[packer_version] }}'
+    hashicorp_version: '{{ packer_version }}'

@@ -3,7 +3,7 @@
   yum_repository:
     name: docker-ce-stable
     description: Docker CE Stable - $basearch
-    baseurl: '{{ docker_repo_url[ansible_os_family] }}'
+    baseurl: '{{ docker_repo_url }}/$releasever/$basearch/stable'
     enabled: yes
     repo_gpgcheck: yes
     gpgcheck: yes

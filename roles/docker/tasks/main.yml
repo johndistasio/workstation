@@ -1,9 +1,9 @@
 ---
-- import_tasks: debian.yml
-  when: ansible_os_family == 'Debian'
+- import_tasks: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
 
-- import_tasks: redhat.yml
-  when: ansible_os_family == 'RedHat'
+- import_tasks: fedora.yml
+  when: ansible_distribution == 'Fedora'
 
 - name: install docker-ce
   package:

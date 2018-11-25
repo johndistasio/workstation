@@ -35,6 +35,12 @@
     state: present
   become: yes
 
+- name: install git
+  package:
+    name: git
+    state: present
+  become: yes
+
 - import_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 

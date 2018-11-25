@@ -5,6 +5,18 @@
     state: present
   become: yes
 
+- name: manage ~/.config/fish
+  file:
+    path: '{{ home }}/.config/fish'
+    state: directory
+    mode: 0700
+
+- name: manage ~/.config/fish/conf.d
+  file:
+    path: '{{ home }}/.config/fish/conf.d'
+    state: directory
+    mode: 0755
+
 - name: install fish environment config
   copy:
     src: env.fish

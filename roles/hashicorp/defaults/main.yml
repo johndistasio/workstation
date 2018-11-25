@@ -1,3 +1,4 @@
+# vim: set ft=yaml.ansible:
 ---
-hashicorp_download: '{{ home }}/Downloads'
+hashicorp_download: '{{ download }}'
 hashicorp_install: '{{ home }}/.local/bin'

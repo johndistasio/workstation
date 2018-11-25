@@ -17,10 +17,12 @@
     src: '{{ golang_download }}/go{{ golang_version }}.linux-amd64.tar.gz'
     dest: '{{ golang_install }}'
     mode: 0755
+    remote_src: '{{ remote_src }}'
   become: yes
 
 - name: install dep
   package:
-    name: '{{ golang_dep_pkg[ansible_os_family] }}'
+    name: '{{ golang_dep_pkg[ansible_distribution] }}'
     state: present
   become: yes
+  when: ansible_distribution in golang_dep_pkg

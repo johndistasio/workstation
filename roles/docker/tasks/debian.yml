@@ -1,6 +1,0 @@
----
-- name: add docker-ce apt repository key
-  apt_key:
-    url: '{{ docker_repo_gpg_key }}'
-    state: present
-  become: yes

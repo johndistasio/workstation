@@ -11,3 +11,11 @@
     name: '{{ vagrant_download }}/{{ vagrant_package }}'
     state: present
   become: yes
+  when: ansible_distribution != 'Ubuntu'
+
+- name: install vagrant
+  apt:
+    deb: '{{ vagrant_download }}/{{ vagrant_package }}'
+    state: present
+  become: yes
+  when: ansible_distribution == 'Ubuntu'

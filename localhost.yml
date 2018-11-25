@@ -1,24 +1,30 @@
 # vim: set ft=yaml.ansible:
 ---
-- hosts: localhost
+- hosts: all
   pre_tasks:
+    # TODO restore root check
     - name: set user facts
       set_fact:
-        home: '/home/{{ lookup("env", "USER") }}'
-        user: '{{ lookup("env", "USER") }}'
+        home: '/home/{{ ansible_user }}'
+        user: '{{ ansible_user }}'
+        download: '/home/{{ ansible_user }}/Downloads'
+        remote_src: '{% if ansible_connection == "ssh" %}yes{% else %}no{% endif %}'
       tags: [always]
   roles:
-    - role: dotfiles
-      tags: [dotfiles]
-
     - role: base-system
       tags: [base-system]
+
+    - role: dotfiles
+      tags: [dotfiles]
 
     - role: thermald
       tags: [thermald]
 
-    - role: ansible
-      tags: [ansible]
+    - role: python
+      tags: [python]
+
+    #- role: ansible
+    #  tags: [ansible]
 
     - role: ruby
       tags: [ruby]

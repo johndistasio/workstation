@@ -1,8 +1,0 @@
-# vim: ft=yaml.ansible:
----
-dependencies:
-  - role: hashicorp
-    vars:
-      hashicorp_app: terraform
-      hashicorp_sha256: '{{ terraform_sha256[terraform_version] }}'
-      hashicorp_version: '{{ terraform_version }}'

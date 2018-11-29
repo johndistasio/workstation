@@ -48,6 +48,7 @@
       tags: [packer]
 
     - role: docker
+      docker_compose_version: 1.23.2
       tags: [docker]
 
     - role: kubectl

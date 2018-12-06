@@ -75,3 +75,6 @@
     - role: vagrant
       vagrant_version: 2.2.1
       tags: [vagrant]
+
+    - role: awscli
+      tags: [awscli]
